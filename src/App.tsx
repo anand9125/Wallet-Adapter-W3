@@ -1,4 +1,4 @@
-
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ConnectionProvider, WalletProvider } from '@solana/wallet-adapter-react';
 import {
     WalletModalProvider,
@@ -8,20 +8,24 @@ import {
 import AirDrop from './AirDrop';
 // Default styles that can be overridden by your app
 import '@solana/wallet-adapter-react-ui/styles.css';
+import SendToken from "./SendToken";
 function App() {
 
   return (
      <ConnectionProvider endpoint={"https://api.devnet.solana.com/"}>
             <WalletProvider wallets={[]} autoConnect>
                 <WalletModalProvider>
+                       <Router> 
                     <div className='flex justify-between '> 
                       <WalletMultiButton></WalletMultiButton>
                       <WalletDisconnectButton></WalletDisconnectButton>
                     </div>
-                    <div className='flex justify-center items-center '>
-                        <AirDrop></AirDrop>
-                    </div>
-                   
+                     <Routes>
+    
+                          <Route path="/" element={<AirDrop/>}></Route>
+                         <Route path= "/sendTransaction" element={<SendToken/>}></Route>
+                     </Routes>
+                 </Router>
                 </WalletModalProvider>
             </WalletProvider>
         </ConnectionProvider>
