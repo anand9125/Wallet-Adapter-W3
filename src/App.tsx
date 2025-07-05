@@ -9,6 +9,8 @@ import AirDrop from './AirDrop';
 // Default styles that can be overridden by your app
 import '@solana/wallet-adapter-react-ui/styles.css';
 import SendToken from "./SendToken";
+import { TokenLaunchpad } from "./TokenLaunchPad";
+
 function App() {
 
   return (
@@ -23,7 +25,8 @@ function App() {
                      <Routes>
     
                           <Route path="/" element={<AirDrop/>}></Route>
-                         <Route path= "/sendTransaction" element={<SendToken/>}></Route>
+                         <Route path= "/sendTransacttokenLaunchPadion" element={<SendToken/>}></Route>
+                         <Route path= "/tokenLaunchPad" element={<TokenLaunchpad/>}></Route>
                      </Routes>
                  </Router>
                 </WalletModalProvider>
